@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #loginform {
+    width: 350px;
+    margin: 60px auto;
+    padding: 30px;
+    background-color: white;
+    border-radius: 15px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+    text-align: center;
+}
+
+#loginform h2 {
+    margin-bottom: 25px;
+    font-size: 26px;
+    color: #3A0808;
+    text-transform: capitalize;
+}
+
+.input-group {
+    display: flex;
+    align-items: center;
+    margin-bottom: 18px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 0 12px;
+    background-color: #fafafa;
+}
+
+.input-group i {
+    color: #3A0808;
+    font-size: 17px;
+    margin-right: 10px;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 12px 5px;
+    border: none;
+    outline: none;
+    background: transparent;
+    font-size: 15px;
+}
+
+.input-group:focus-within {
+    border-color: #3A0808;
+    box-shadow: 0 0 5px rgba(58, 8, 8, 0.2);
+}
+
+#loginform button {
+    width: 100%;
+    padding: 12px;
+    margin-top: 5px;
+    border: none;
+    border-radius: 8px;
+    background-color: #3A0808;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+#loginform button:hover {
+    background-color: #6b1a1a;
+    transform: translateY(-2px);
+}
+
+.signup {
+    margin-top: 20px;
+    font-size: 14px;
+    color: #666;
+}
+
+    </style>
+</head>
+<body>
+    <form id="loginform">
+        <h2>login your account</h2>
+        <div class="input-group">
+            <i class="fa fa-user"></i>
+            <input type="text" id="username" placeholder="username" required>
+
+        </div>
+        <div class="input-group">
+            <i class="fa fa-lock"></i>
+            <input type="password"id="password" placeholder="password" required>
+
+        </div>
+        <button type="submit">login</button>
+        <p class="signup">Don't have an account?
+        </p>
+
+    </form>
+    
+</body>
+</html>
