@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        header{
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 10px 30px;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background-color: rgb(6, 6, 71);
+            color: white;
+        }
+        .logo{
+            font-size: 2rem;
+        }
+        .nav{
+            display: flex;
+            gap: 30px;
+            color: white;
+
+        }
+        .nav a{
+            text-decoration: none;
+            font-size: 24px;
+            color: white;
+
+        }
+        .login{
+            background-color: white;
+            color: black;
+            border-radius: 6px;
+            padding: 10px;
+            width: 100px;
+            height: 50px;
+            margin: 10px;
+            font-size: 18px;
+            cursor: pointer;
+            
+        }
+        .login{
+            transform: translateY(-5s);
+            transition: 0.4s ease-in;
+        }
+        .login:hover{
+            background-color: rgb(152, 152, 227);
+        }
+        @media(max-width:600px){
+            header{
+                flex-direction:column ;
+                gap: 15px;
+            }
+            nav{
+                flex-direction: column;
+            }
+        }
+        h2{
+            font-size: 2rem;
+        }
+        .hero-section{
+            display: flex;
+            object-fit: contain;
+            width: auto;
+           min-height: 400px;
+            background-image: url(blue.avif);
+            align-items: center;
+            justify-content: center;
+        }
+        @media(max-width:600px){
+            .hero-section img{
+                min-height: 250px;
+                object-fit: contain;
+            }
+            .hero-section img{
+                height: auto;
+                width: 100%;
+                display: block;
+                object-fit: contain;
+
+            }
+        }
+        .container{
+            display: grid;
+            grid-template-columns: repeat(auto-fit,minmax(200px,1fr));
+            gap: 15px;
+            border: 2px solid rgb(237, 220, 220);
+            background-color:white;
+            height: auto;
+        }
+        .category{
+            border: 1px solid grey;
+            padding: 10px;
+            height: 280px;
+           background-color: white;
+           box-sizing: border-box;
+           border-radius: 4px;
+        }
+        .category img{
+            width: 100%;
+           height: 200px;
+          object-fit: contain;
+         display: block;
+         border-radius: 5px;
+
+        }
+        .category-h2{
+            font-size: 18px;
+        }
+        .category img:hover{
+            transform: scale(1.03);
+
+        }
+        .category:hover{
+            transform: scale(1.02);
+        }
+        .flash{
+            font-size: 24px;
+            font-weight: bold;
+        }
+        .flash-sale-container{
+    width: 100%;
+    display: grid;
+    background-color: rgb(228, 204, 204);
+    border: 2px solid black;
+    grid-template-columns: repeat(auto-fit,minmax(200px,1fr));
+    gap: 5px;
+}
+.card{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    padding: 15px;
+    align-items:flex-start;
+    height: 350px;
+    width: 100%;
+    background-color: white;
+    box-sizing: border-box;
+    align-items: center;
+}
+.sale{
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    padding: 6px 12px;
+    background-color: rgb(168, 36, 163);
+    color: white;
+}
+.card img{
+    width: 100%;
+    height: 240px;
+    object-fit: contain;
+    display: block;
+}
+.card img:hover{
+    transform: scale(1.02);
+
+}
+.card:hover{
+    transform: scale(1.03);
+}
+.heading{
+    font-size: 18x;
+    font-weight: normal;
+    margin: 10px 0;
+}
+.discount-price{
+    font-size: 22px;
+    color: orangered;
+    margin: 5px 0;
+    justify-content: flex-start;
+    align-self: start;
+}
+.original-price{
+    font-size: 14px;
+    margin: 5px 0;
+    text-decoration: line-through;
+    color: grey;
+    align-self: start;
+}
+.discount{
+    font-size: 14px;
+    margin: 5px 0;
+    align-self: start;
+}
+.price-info{
+    display: flex;
+    align-items: flex-start;
+     align-self: start;
+     gap: 5px;
+}
+.product-container{
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(200px,1fr));
+    gap: 20px;
+    padding: 20px;
+}
+.product-card{
+     border: 1px solid #ddd;
+    padding: 10px;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    animation: cardAppear 0.8s ease;
+    animation-delay: 4s;
+    animation-iteration-count: 5;
+    height: auto;
+}
+.product-card:hover{
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
+.product-card img{
+    width: 100%;
+    height: 200px;
+    object-fit: contain;
+    display: block;
+    margin: auto;
+}
+.product-card img:hover{
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
+.product-card h3{
+    font-size: 16px;
+    margin: 10px 0 5px;
+}
+.rating{
+    font-size: 14px;
+    margin: 5px 0;
+}
+.price{
+    font-size: 20px;
+    font-weight: bold;
+    margin: 5px 0;
+}
+.old-price{
+    font-size: 14px;
+    color: gray;
+    text-decoration: line-through;
+    margin: 3px 0;
+}
+.discount{
+    font-size: 13px;
+    color: #e53935;
+    margin: 3px 0;
+    font-weight: bold;
+}
+.product-card button{
+    width: 100%;
+    padding: 6px;
+    margin-top: auto;
+    border: none;
+    border-radius: 5px;
+    background-color:rgb(25, 25, 93);
+    color: white;
+    font-size: 14px;
+    cursor: pointer;
+    transition: 0.3s ease;
+    align-self: center;
+}
+.product-card button:hover {
+    background-color: rgb(146, 38, 74);
+    transform: translateY(-3px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+    </style>
+</head>
+<body>
+    <header>
+        <h1 class="logo">my store</h1>
+        <nav class="nav">
+            <a href="#">home</a>
+            <a href="#">about</a>
+            <a href="#">services</a>
+            <a href="#">contact us</a>
+
+        </nav>
+        <button class="login" onclick="window.location.href='login-form.html'">
+    Login
+</button>
+    </header>
+    <div class="hero-section">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR4k2FfKZruLC_0zKuwiySod_NNEXGB5MoP0wJOEjdPBqPbjjpW50C9lKzr&s=10" alt="hero-img">
+
+    </div>
+    <h2>categories</h2>
+    <div class="container">
+        <div class="category">
+            <img src="https://img.drz.lazcdn.com/static/pk/p/c58ddd32ef5fa6291c8919fd7ecd6944.jpg_400x400q75.avif"
+            alt="women fashion">
+            <h2 class="category-h2">ladies dress</h2>
+                 </div>
+                  <div class="category">
+            <img src="https://img.drz.lazcdn.com/static/pk/p/b255b3eab29e055c47673c4e9c572e04.jpg_400x400q75.avif"
+            alt="home decor">
+            <h2 class="category-h2">home decor</h2>
+        </div>
+         
+         <div class="category">
+            <img src="https://img.drz.lazcdn.com/g/kf/Sc9dc897189de4cc1af38438da05a537cl.jpg_400x400q75.avif"
+            alt="Ladies shoes">
+            <h2 class="category-h2">Ladies shoes</h2>
+        </div>
+        <div class="category">
+            <img src="https://img.drz.lazcdn.com/static/pk/p/1f2bb92127e9ca4aa98cde6a4d211c54.jpg_400x400q75.avif"
+            alt="mens sandals">
+            <h2 class="category-h2">mens sandals</h2>
+        </div>
+         <div class="category">
+            <img src="https://img.drz.lazcdn.com/static/pk/p/b2aef5f1a63209620059ba6ef6aa7d75.jpg_400x400q75.avif"
+            alt="mens outfit">
+            <h2 class="category-h2">mens outfit</h2>
+        </div>
+         <div class="category">
+            <img src="https://img.drz.lazcdn.com/static/pk/p/5ad9b532f68bbdcf52d9e5370fadb86b.png_400x400q75.avif"
+            alt="perfume">
+            <h2 class="category-h2">perfume</h2>
+        </div>
+        <div class="category">
+            <img src="https://img.drz.lazcdn.com/static/pk/p/72aa1a808b8f6a08f780eb605487467d.jpg_400x400q75.avif"
+            alt="Ladies perfume">
+            <h2 class="category-h2">Ladies perfume</h2>
+        </div>
+        <div class="category">
+            <img src="https://img.drz.lazcdn.com/g/kf/Sdea0edfb4b90426bbc208440c9a32b57q.jpg_400x400q75.avif"
+            alt="kids wear">
+            <h2 class="category-h2">kids wear</h2>
+        </div>
+        <div class="category">
+            <img src="https://img.drz.lazcdn.com/static/pk/p/b83b6c78f7af2544bbe4e38dd10a480b.jpg_400x400q75.avif"
+            alt="kids wedding sherwani">
+            <h2 class="category-h2">kids wedding sherwani</h2>
+        </div>
+ <div class="category">
+            <img src="https://img.drz.lazcdn.com/static/pk/p/e249db74a5dc1ebeb8883237c14bc01a.jpg_400x400q75.avif"
+            alt="baby girl wedding dress">
+            <h2 class="category-h2">baby girl wedding dress</h2>
+        </div>
+         <div class="category">
+            <img src="https://img.drz.lazcdn.com/g/kf/S94a63f7f473247ceb0ef720de985579eU.jpg_400x400q75.avif"
+            alt="customized name bracelets">
+            <h2 class="category-h2">customized name bracelets</h2>
+        </div>
+        <div class="category">
+            <img src="https://img.drz.lazcdn.com/g/kf/S4cb2a7e106cc419dbf262e678e663b458.jpg_400x400q75.avif"
+            alt="girls bangles">
+            <h2 class="category-h2">girls bangles</h2>
+        </div>
+     </div>
+    <h2 class="flash">On Flash Sale</h2>
+
+<div class="flash-sale-container">
+
+        <div class="card">
+        <span class="sale">sale</span>
+        <img src="https://img.drz.lazcdn.com/static/pk/p/96abca8603612a2488c9c06020943020.jpg_400x400q80.jpg_.avif"
+             alt="Pediasure">
+        <p class="heading">Pediasure Triplesure Vanilla Milk Powder 400g</p>
+        <p class="discount-price">Rs. 1,700</p>
+        <div class="price-info">
+            <p class="original-price">Rs. 3,000</p>
+            <p class="discount">-17%</p>
+
+        </div>
+        </div>
+        <div class="card">
+        <span class="sale">sale</span>
+        <img src="https://img.drz.lazcdn.com/static/pk/p/26b47e890643e6091700e866ef778aa7.jpg_400x400q75.avif"
+             alt="Pediasure">
+        <p class="heading"> protable travel jewerlly box organizer.</p>
+        <p class="discount-price">Rs. 369</p>
+        <div class="price-info">
+            <p class="original-price">Rs. 600</p>
+            <p class="discount">-17%</p>
+
+        </div>
+        </div>
+        <div class="card">
+        <span class="sale">sale</span>
+        <img src="https://img.drz.lazcdn.com/static/pk/p/fd98aaf87f2e275d4fbfa9b088e3f03d.jpg_400x400q75.avif"
+             alt="Pediasure">
+        <p class="heading">wireless airbuds with led display</p>
+        <p class="discount-price">Rs. 599</p>
+        <div class="price-info">
+            <p class="original-price">Rs. 1,000</p>
+            <p class="discount">-17%</p>
+
+        </div>
+        </div>
+        <div class="card">
+        <span class="sale">sale</span>
+        <img src="https://img.drz.lazcdn.com/static/pk/p/6576f5db54b34bdac150774bfae30a12.jpg_400x400q75.avif"
+             alt="Pediasure">
+        <p class="heading">mosquito coil stand triangle anti-scald</p>
+        <p class="discount-price">Rs. 1,700</p>
+        <div class="price-info">
+            <p class="original-price">Rs. 3,000</p>
+            <p class="discount">-17%</p>
+
+        </div>
+        </div>
+        <div class="card">
+        <span class="sale">sale</span>
+        <img src="https://img.drz.lazcdn.com/g/kf/Sa3ab7e778fe34ea4beb6b525864ce962E.jpg_400x400q75.avif"
+             alt="Pediasure">
+        <p class="heading">bubble gun for kids-Bazookabubble machine.</p>
+        <p class="discount-price">Rs. 568</p>
+        <div class="price-info">
+            <p class="original-price">Rs. 1200</p>
+            <p class="discount">-17%</p>
+
+        </div>
+        </div>
+        <div class="card">
+        <span class="sale">sale</span>
+        <img src="https://img.drz.lazcdn.com/static/pk/p/a10205237710a85a4dea7603e8478e99.jpg_400x400q75.avif"
+             alt="Pediasure">
+        <p class="heading">nude beautiful 18 different color eyeshadow platte</p>
+        <p class="discount-price">Rs. 1,700</p>
+        <div class="price-info">
+            <p class="original-price">Rs. 3,000</p>
+            <p class="discount">-17%</p>
+
+        </div>
+    </div>
+
+</div>
+<h2 class="for-you">Just For You </h2>
+<div class="product-container">
+    <div class="product-card">
+        <img src="https://img.drz.lazcdn.com/static/pk/p/01afa7bbc1d85df5e6b9671c9e18abc2.jpg_400x400q75.avif" alt="women shirt">
+        <h3>Women Printed Lawn Shirt</h3>
+        <p class="rating">⭐⭐⭐⭐⭐<span>4.5</span>(120) </p>
+        <p class="price">price Rs.1,499</p>
+        <p class="old-price">price Rs.2,499</p>
+        <p class="discount">-40%</p>
+        <button>Add to cart</button>
+
+
+    </div>
+    <div class="product-card">
+        <img src="https://img.drz.lazcdn.com/g/kf/Sc2a621c02bca4bb689f9e8f2b8569831w.jpg_400x400q75.avif" alt="women shirt">
+        <h3>college bags</h3>
+        <p class="rating">⭐⭐⭐⭐<span>4.3</span>(95) </p>
+        <p class="price">price Rs.1,899</p>
+        <p class="old-price">price Rs.2,499</p>
+        <p class="discount">-37%</p>
+        <button>Add to cart</button>
+
+    </div>
+    <div class="product-card">
+        <img src="https://img.drz.lazcdn.com/static/pk/p/408487c3633184ad5766b0bac17ede5a.jpg_400x400q75.avif" alt="women shirt">
+        <h3>men footwear</h3>
+        <p class="rating">⭐⭐⭐⭐⭐<span>4.6</span>(210) </p>
+        <p class="price">price Rs.1,599</p>
+        <p class="old-price">price Rs.2,499</p>
+        <p class="discount">-36%</p>
+        <button>Add to cart</button>
+
+    </div>
+     <div class="product-card">
+        <img src="https://img.drz.lazcdn.com/static/pk/p/d0e49c54b90ced44a24694dfb02ec38a.jpg_400x400q75.avif" alt="women shirt">
+        <h3>printed sheets</h3>
+        <p class="rating">⭐⭐⭐⭐⭐<span>4.6</span>(210) </p>
+        <p class="price">price Rs.1,899</p>
+        <p class="old-price">price Rs.2,499</p>
+        <p class="discount">-40%</p>
+        <button>Add to cart</button>
+
+    </div>
+    <div class="product-card">
+        <img src="https://img.drz.lazcdn.com/static/pk/p/37aa017d9c92708a034a1c848189bab7.jpg_400x400q75.avif" alt="women shirt">
+        <h3>Wall decoration</h3>
+        <p class="rating">⭐⭐⭐⭐⭐<span>4.2</span>(80) </p>
+        <p class="price">price Rs.1,499</p>
+        <p class="old-price">price Rs.2,//299</p>
+        <p class="discount">-42%</p>
+        <button>Add to cart</button>
+
+    </div>
+    <div class="product-card">
+        <img src="https://img.drz.lazcdn.com/g/kf/S8f05cf026ebe47ae9fcb88b8f9d86304H.jpg_400x400q75.avif" alt="women shirt">
+        <h3>sunglasses</h3>
+        <p class="rating">⭐⭐⭐⭐⭐<span>4.5</span>(150) </p>
+        <p class="price">price Rs.599</p>
+        <p class="old-price">price Rs.899</p>
+        <p class="discount">-38%</p>
+        <button>Add to cart</button>
+
+    </div>
+    <div class="product-card">
+        <img src="https://img.drz.lazcdn.com/g/kf/S5c330c8f64364532814640043866ed54S.jpg_400x400q75.avif" alt="women shirt">
+        <h3>jewerlly box</h3>
+        <p class="rating">⭐⭐⭐⭐⭐<span>4.4</span>(110) </p>
+        <p class="price">price Rs.799</p>
+        <p class="old-price">price Rs.1499</p>
+        <p class="discount">-38%</p>
+        <button>Add to cart</button>
+
+    </div>
+     <div class="product-card">
+        <img src="https://img.drz.lazcdn.com/g/kf/S3e98e37d05694949b6db72aba928ec83T.jpg_400x400q75.avif" alt="women shirt">
+        <h3>makeup cylinder</h3>
+        <p class="rating">⭐⭐⭐⭐⭐<span>4.6</span>(75) </p>
+        <p class="price">price Rs.1,499</p>
+        <p class="old-price">price Rs.2,499</p>
+        <p class="discount">-40%</p>
+        <button>Add to cart</button>
+
+    </div>
+    <div class="product-card">
+        <img src="https://img.drz.lazcdn.com/g/kf/S5285b6b361394aa7acfa927b038b7250W.jpg_400x400q75.avif" alt="women shirt">
+        <h3>bracelets</h3>
+        <p class="rating">⭐⭐⭐⭐⭐<span>4.3</span>(130) </p>
+        <p class="price">price Rs.599</p>
+        <p class="old-price">price Rs.999</p>
+        <p class="discount">-45%</p>
+        <button>Add to cart</button>
+
+    </div>
+    <div class="product-card">
+        <img src="https://img.drz.lazcdn.com/static/pk/p/c894ba46659e658b4df6fe130814b6cf.jpg_400x400q75.avif" alt="women shirt">
+        <h3>keychain</h3>
+        <p class="rating">⭐⭐⭐⭐⭐<span>4.7</span>(200) </p>
+        <p class="price">price Rs.499</p>
+        <p class="old-price">price Rs.899</p>
+        <p class="discount">-36%</p>
+        <button>Add to cart</button>
+
+    </div>
+    <div class="product-card">
+        <img src="https://img.drz.lazcdn.com/static/pk/p/7d6f20cfba29033fa67755c8af7745d8.jpg_400x400q75.avif" alt="women shirt">
+        <h3>customize water bottel</h3>
+        <p class="rating">⭐⭐⭐⭐⭐<span>4.4</span>(90) </p>
+        <p class="price">price Rs.699</p>
+        <p class="old-price">price Rs.1099</p>
+        <p class="discount">-40%</p>
+        <button>Add to cart</button>
+
+    </div>
+    <div class="product-card">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT6_W1W8fhGVs5LBwf0G-_R8uj8jrqribvoeHKUTBuSQw&s=10" alt="women shirt">
+        <h3>handbag</h3>
+        <p class="rating">⭐⭐⭐⭐⭐<span>4.5</span>(175) </p>
+        <p class="price">price Rs.1,999</p>
+        <p class="old-price">price Rs.2,499</p>
+        <p class="discount">-38%</p>
+        <button>Add to cart</button>
+
+    </div>
+    
+     
+
+</div>
+    
+</body>
+</html>
